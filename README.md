@@ -1,4 +1,4 @@
-# How to use next-themes with Tailwind
+# How to use next-themes with Tailwind v4
 
 1. in globals.css create your root colors
 ```
