@@ -1,5 +1,17 @@
 # How to use next-themes with Tailwind v4
 
+## Pre-requisites
+1. Create nextjs app by running `npx create-next-app@latest myAppName` and answer the questions as follows: 
+```
+✔ Would you like to use TypeScript? … No 
+✔ Would you like to use ESLint? … No 
+✔ Would you like to use Tailwind CSS? … Yes
+✔ Would you like to use `src/` directory? … Yes
+✔ Would you like to use App Router? (recommended) … Yes
+✔ Would you like to customize the default import alias (@/*)? … No 
+```
+2. `npm install next-themes`
+
 ## Tailwind v4 Theme Setup
 1. in globals.css create your root colors
 ```
@@ -9,7 +21,7 @@
   --custom-text: rgb(114 35 204);
 }
 ```
-2. in globals.css, similar to the root colors, create your dark theme colors like so:
+1. in globals.css, similar to the root colors, create your dark theme colors like so:
 ```
 .dark{
   --custom-background: rgb(204, 131, 35);
@@ -17,7 +29,7 @@
   --custom-text: rgb(204, 131, 35);
 }
 ```
-3. create a @theme object in globals.css and refer to your configured colors in the root theme & dark theme by variables:
+1. create a @theme object in globals.css and refer to your configured colors in the root theme & dark theme by variables:
 ```
 @theme{
   --color-background: var(--custom-background); 
