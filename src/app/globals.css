@@ -37,5 +37,5 @@
 }
 
 .button-primary {
-  @apply p-4 text-button-text rounded font-bold;
+  @apply p-4 text-button-text rounded font-bold cursor-pointer;
 }
