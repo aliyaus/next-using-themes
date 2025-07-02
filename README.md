@@ -1,5 +1,6 @@
 # How to use next-themes with Tailwind v4
 
+## Tailwind v4 Theme Setup
 1. in globals.css create your root colors
 ```
 :root{
@@ -25,7 +26,7 @@
 }
 ```
 
-# To use next-themes
+## Implementing next-themes to set the dark mode theme class
 1. Create `theme.js`
 ```
 'use client';
@@ -40,7 +41,7 @@ export default function Theme({ children }) {
   if (!mounted) return null; // or a loading skeleton/spinner
 
   return (
-    <ThemeProvider attribute="data-theme">
+    <ThemeProvider attribute="class">
       {children}
     </ThemeProvider>
   );
@@ -62,7 +63,6 @@ export default function RootLayout({ children }) {
   );
 }
 ```
-
 
 # References
 - https://www.youtube.com/watch?v=bupetqS1SMU
