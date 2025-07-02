@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# How to use next-themes with Tailwind
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. in globals.css create your root colors
+```
+:root{
+  --custom-background: rgb(114 35 204);
+  --custom-border: rgb(114 35 204);
+  --custom-text: rgb(114 35 204);
+}
+```
+2. in globals.css, similar to the root colors, create your dark theme colors like so:
+```
+.dark{
+  --custom-background: rgb(204, 131, 35);
+  --custom-border: rgb(204, 131, 35);
+  --custom-text: rgb(204, 131, 35);
+}
+```
+3. create a @theme object in globals.css and refer to your configured colors in the root theme & dark theme by variables:
+```
+@theme{
+  --color-background: var(--custom-background); 
+  --color-border: var(--custom-border); 
+  --color-text: var(--custom-text); 
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# To use next-themes
+1. Create `theme.js`
+```
+'use client';
+import { ThemeProvider } from 'next-themes';
+import { useEffect, useState } from 'react';
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+export default function Theme({ children }) {
+  const [mounted, setMounted] = useState(false);
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  useEffect(() => setMounted(true), []);
 
-## Learn More
+  if (!mounted) return null; // or a loading skeleton/spinner
 
-To learn more about Next.js, take a look at the following resources:
+  return (
+    <ThemeProvider attribute="data-theme">
+      {children}
+    </ThemeProvider>
+  );
+}
+```
+2. in `layout.js` wrap with the Theme: 
+```
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Theme>
+          {children}
+        </Theme>
+      </body>
+    </html>
+  );
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# References
+- https://www.youtube.com/watch?v=bupetqS1SMU
+- https://www.youtube.com/watch?v=7sYe_90JII4
