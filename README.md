@@ -11,6 +11,7 @@
 ✔ Would you like to customize the default import alias (@/*)? … No 
 ```
 2. `npm install next-themes`
+3. run app using `npm run dev`
 
 ## Tailwind v4 Theme Setup
 1. in globals.css create your root colors
