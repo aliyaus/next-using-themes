@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
 @theme {
+  /* To reference these you would do <tailwind-css-property>-<custom-color-reference>
+  
+  ex. to use --color background ---> bg-background
+  ex. to use --color-button ---> bg-button
+  ex. to use --color-text: ---> text-text
+  */
   --color-background: var(--custom-background);
   --color-border: var(--custom-border);
   --color-text: var(--custom-text);
-  --color-button: var(--custom-button-background);
+  --color-button: var(--custom-button-background); 
 }
 
 :root {

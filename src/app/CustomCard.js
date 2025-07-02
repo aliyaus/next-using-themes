@@ -10,7 +10,7 @@ function CustomCard() {
     const { theme, setTheme } = useTheme();
 
     return (
-        <div className='border-2 border-gray-400 p-20 h-auto rounded text-center flex flex-col gap-10'>
+        <div className='text-text border-2 border-gray-400 p-20 h-auto rounded text-center flex flex-col gap-10'>
             <h1 className='font-bold text-2xl'>Mode</h1>
             <p className='w-100'>{DUMMY_TEXT}</p>
             <button
