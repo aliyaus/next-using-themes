@@ -11,11 +11,11 @@ function CustomCard() {
 
     return (
         <div className='text-text border-2 border-gray-400 p-20 h-auto rounded text-center flex flex-col gap-10'>
-            <h1 className='font-bold text-2xl'>Mode</h1>
+            <h1 className='heading'>Tailwind v4 using <b>next-themes</b></h1>
             <p className='w-100'>{DUMMY_TEXT}</p>
             <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className='bg-button p-4 rounded'>Toggle Theme</button>
+                className='bg-button button-primary'>Toggle Theme</button>
         </div>
     )
 }
